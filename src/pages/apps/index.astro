@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { apps } from "../../data/apps";
+---
+
+<BaseLayout title="Apps — wonkoworld" description="Applications I build.">
+  <p class="eyebrow">Apps</p>
+  <h1>Applications</h1>
+  <p class="lede">Standalone tools and applications, outside of WordPress.</p>
+
+  <div class="card-grid">
+    {
+      apps.map((app) => (
+        <a class="card" href={`/apps/${app.slug}`}>
+          <h3>{app.name}</h3>
+          <p>{app.tagline}</p>
+          <span class="badge">{app.status}</span>
+        </a>
+      ))
+    }
+  </div>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { plugins } from "../../data/plugins";
+---
+
+<BaseLayout title="Plugins — wonkoworld" description="WordPress plugins I build.">
+  <p class="eyebrow">Plugins</p>
+  <h1>WordPress plugins</h1>
+  <p class="lede">Plugins for the WordPress ecosystem.</p>
+
+  {
+    plugins.length > 0 ? (
+      <div class="card-grid">
+        {plugins.map((plugin) => (
+          <a class="card" href={`/plugins/${plugin.slug}`}>
+            <h3>{plugin.name}</h3>
+            <p>{plugin.tagline}</p>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p class="placeholder">
+        No plugins published yet — add entries to{" "}
+        <code>src/data/plugins.ts</code> as they go live.
+      </p>
+    )
+  }
+</BaseLayout>

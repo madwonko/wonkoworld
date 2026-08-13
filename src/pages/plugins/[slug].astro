@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { plugins } from "../../data/plugins";
+
+export function getStaticPaths() {
+  return plugins.map((plugin) => ({
+    params: { slug: plugin.slug },
+    props: { plugin },
+  }));
+}
+
+const { plugin } = Astro.props;
+---
+
+<BaseLayout title={`${plugin.name} — wonkoworld`} description={plugin.tagline}>
+  <a class="back-link" href="/plugins">&larr; All plugins</a>
+  <h1>{plugin.name}</h1>
+  <p class="lede">{plugin.tagline}</p>
+  <p>{plugin.description}</p>
+
+  {
+    plugin.tags.length > 0 && (
+      <div class="tag-row">
+        {plugin.tags.map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    plugin.wpUrl && (
+      <div class="detail-meta">
+        <a class="btn" href={plugin.wpUrl}>
+          View on WordPress.org
+        </a>
+      </div>
+    )
+  }
+</BaseLayout>
