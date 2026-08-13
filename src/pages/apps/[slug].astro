@@ -13,10 +13,10 @@ const { app } = Astro.props;
 ---
 
 <BaseLayout title={`${app.name} — wonkoworld`} description={app.tagline}>
-  <a class="back-link" href="/apps">&larr; All apps</a>
+  <a class="back-link" href="/apps">apps</a>
   <div class="detail-header">
     <h1>{app.name}</h1>
-    <span class="badge">{app.status}</span>
+    <span class="badge" data-status={app.status}>{app.status}</span>
   </div>
   <p class="lede">{app.tagline}</p>
   <p>{app.description}</p>

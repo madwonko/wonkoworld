@@ -12,9 +12,10 @@ import { apps } from "../../data/apps";
     {
       apps.map((app) => (
         <a class="card" href={`/apps/${app.slug}`}>
+          <span class="path">~/apps/{app.slug}</span>
           <h3>{app.name}</h3>
           <p>{app.tagline}</p>
-          <span class="badge">{app.status}</span>
+          <span class="badge" data-status={app.status}>{app.status}</span>
         </a>
       ))
     }

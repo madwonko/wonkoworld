@@ -25,23 +25,27 @@ const isCurrent = (path: string) =>
   </head>
   <body>
     <header class="site">
-      <div class="wrap">
-        <nav>
-          <a class="brand" href="/">wonkoworld</a>
-          <div class="links">
-            <a href="/" aria-current={isCurrent("/") ? "page" : undefined}>Home</a>
-            <a href="/apps" aria-current={isCurrent("/apps") ? "page" : undefined}>Apps</a>
-            <a href="/plugins" aria-current={isCurrent("/plugins") ? "page" : undefined}>Plugins</a>
-          </div>
-        </nav>
+      <div class="term-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="term-title">wonkoworld — zsh</span>
       </div>
+      <nav class="wrap">
+        <a class="brand" href="/">~/wonkoworld</a>
+        <div class="links">
+          <a href="/" aria-current={isCurrent("/") ? "page" : undefined}>home</a>
+          <a href="/apps" aria-current={isCurrent("/apps") ? "page" : undefined}>apps</a>
+          <a href="/plugins" aria-current={isCurrent("/plugins") ? "page" : undefined}>plugins</a>
+        </div>
+      </nav>
     </header>
     <main class="wrap">
       <slot />
     </main>
     <footer class="site">
       <div class="wrap">
-        <p>&copy; {new Date().getFullYear()} wonkoworld.</p>
+        <p>// © {new Date().getFullYear()} wonkoworld <span class="cursor">&nbsp;</span></p>
       </div>
     </footer>
   </body>

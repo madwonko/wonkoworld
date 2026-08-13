@@ -8,21 +8,34 @@ const featuredPlugins = plugins.slice(0, 3);
 ---
 
 <BaseLayout title="wonkoworld">
-  <p class="eyebrow">wonkoworld</p>
-  <h1>Plugins and apps I build.</h1>
-  <p class="lede">
-    A home for the WordPress plugins and applications I make, starting with
-    PrintMonitor.
-  </p>
+  <div class="terminal">
+    <div class="term-bar">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+      <span class="term-title">wonkoworld — zsh — 80x24</span>
+    </div>
+    <div class="term-body">
+      <p class="term-line"><span class="prompt">$</span> whoami</p>
+      <p class="term-output headline">
+        wonkoworld
+        <span class="lede">Plugins and apps I build, starting with PrintMonitor.</span>
+      </p>
+      <p class="term-line"><span class="prompt">$</span> ls</p>
+      <p class="term-output">apps/&nbsp;&nbsp;plugins/</p>
+      <p class="term-line"><span class="prompt">$</span> <span class="cursor">&nbsp;</span></p>
+    </div>
+  </div>
 
   <div class="section-title">
-    <h2>Apps</h2>
-    <a href="/apps">View all &rarr;</a>
+    <h2><span class="highlight">Apps</span></h2>
+    <a href="/apps">ls -la /apps &rarr;</a>
   </div>
   <div class="card-grid">
     {
       featuredApps.map((app) => (
         <a class="card" href={`/apps/${app.slug}`}>
+          <span class="path">~/apps/{app.slug}</span>
           <h3>{app.name}</h3>
           <p>{app.tagline}</p>
         </a>
@@ -31,14 +44,15 @@ const featuredPlugins = plugins.slice(0, 3);
   </div>
 
   <div class="section-title">
-    <h2>WordPress plugins</h2>
-    <a href="/plugins">View all &rarr;</a>
+    <h2><span class="highlight">WordPress plugins</span></h2>
+    <a href="/plugins">ls -la /plugins &rarr;</a>
   </div>
   {
     featuredPlugins.length > 0 ? (
       <div class="card-grid">
         {featuredPlugins.map((plugin) => (
           <a class="card" href={`/plugins/${plugin.slug}`}>
+            <span class="path">~/plugins/{plugin.slug}</span>
             <h3>{plugin.name}</h3>
             <p>{plugin.tagline}</p>
           </a>
