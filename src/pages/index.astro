@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { apps } from "../data/apps";
 import { plugins } from "../data/plugins";
+import { href } from "../lib/url";
 
 const featuredApps = apps.slice(0, 3);
 const featuredPlugins = plugins.slice(0, 3);
@@ -29,12 +30,12 @@ const featuredPlugins = plugins.slice(0, 3);
 
   <div class="section-title">
     <h2><span class="highlight">Apps</span></h2>
-    <a href="/apps">ls -la /apps &rarr;</a>
+    <a href={href("apps")}>ls -la /apps &rarr;</a>
   </div>
   <div class="card-grid">
     {
       featuredApps.map((app) => (
-        <a class="card" href={`/apps/${app.slug}`}>
+        <a class="card" href={href(`apps/${app.slug}`)}>
           <span class="path">~/apps/{app.slug}</span>
           <h3>{app.name}</h3>
           <p>{app.tagline}</p>
@@ -45,13 +46,13 @@ const featuredPlugins = plugins.slice(0, 3);
 
   <div class="section-title">
     <h2><span class="highlight">WordPress plugins</span></h2>
-    <a href="/plugins">ls -la /plugins &rarr;</a>
+    <a href={href("plugins")}>ls -la /plugins &rarr;</a>
   </div>
   {
     featuredPlugins.length > 0 ? (
       <div class="card-grid">
         {featuredPlugins.map((plugin) => (
-          <a class="card" href={`/plugins/${plugin.slug}`}>
+          <a class="card" href={href(`plugins/${plugin.slug}`)}>
             <span class="path">~/plugins/{plugin.slug}</span>
             <h3>{plugin.name}</h3>
             <p>{plugin.tagline}</p>

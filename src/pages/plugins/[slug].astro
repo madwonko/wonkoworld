@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { plugins } from "../../data/plugins";
+import { href } from "../../lib/url";
 
 export function getStaticPaths() {
   return plugins.map((plugin) => ({
@@ -13,7 +14,7 @@ const { plugin } = Astro.props;
 ---
 
 <BaseLayout title={`${plugin.name} — wonkoworld`} description={plugin.tagline}>
-  <a class="back-link" href="/plugins">plugins</a>
+  <a class="back-link" href={href("plugins")}>plugins</a>
   <h1>{plugin.name}</h1>
   <p class="lede">{plugin.tagline}</p>
   <p>{plugin.description}</p>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { apps } from "../../data/apps";
+import { href } from "../../lib/url";
 ---
 
 <BaseLayout title="Apps — wonkoworld" description="Applications I build.">
@@ -11,7 +12,7 @@ import { apps } from "../../data/apps";
   <div class="card-grid">
     {
       apps.map((app) => (
-        <a class="card" href={`/apps/${app.slug}`}>
+        <a class="card" href={href(`apps/${app.slug}`)}>
           <span class="path">~/apps/{app.slug}</span>
           <h3>{app.name}</h3>
           <p>{app.tagline}</p>

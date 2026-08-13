@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { apps } from "../../data/apps";
+import { href } from "../../lib/url";
 
 export function getStaticPaths() {
   return apps.map((app) => ({
@@ -13,7 +14,7 @@ const { app } = Astro.props;
 ---
 
 <BaseLayout title={`${app.name} — wonkoworld`} description={app.tagline}>
-  <a class="back-link" href="/apps">apps</a>
+  <a class="back-link" href={href("apps")}>apps</a>
   <div class="detail-header">
     <h1>{app.name}</h1>
     <span class="badge" data-status={app.status}>{app.status}</span>
