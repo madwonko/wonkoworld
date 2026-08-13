@@ -19,4 +19,14 @@ export const apps: App[] = [
     tags: ["network-monitoring", "snmp", "self-hosted", "enterprise"],
     links: [{ label: "Visit prntr.org", href: "https://prntr.org/" }],
   },
+  {
+    slug: "snmp-scanner",
+    name: "SNMP Scanner",
+    tagline: "Scan your network's SNMP-enabled devices from the command line.",
+    description:
+      "snmp-scanner concurrently scans a CIDR range for SNMP-enabled devices, detects vendors (Cisco, Juniper, HP/Aruba, MikroTik, and more), and pulls per-interface details, exporting results to JSON or CSV. It ships with a FastAPI backend and a React dashboard for browsing scan results in the browser.",
+    status: "beta",
+    tags: ["cli", "snmp", "network-scanning", "python"],
+    links: [],
+  },
 ];
