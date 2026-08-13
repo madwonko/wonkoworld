@@ -29,11 +29,18 @@ const { plugin } = Astro.props;
   }
 
   {
-    plugin.wpUrl && (
+    (plugin.wpUrl || plugin.repoUrl) && (
       <div class="detail-meta">
-        <a class="btn" href={plugin.wpUrl}>
-          View on WordPress.org
-        </a>
+        {plugin.wpUrl && (
+          <a class="btn" href={plugin.wpUrl}>
+            View on WordPress.org
+          </a>
+        )}
+        {plugin.repoUrl && (
+          <a class="btn" href={plugin.repoUrl}>
+            View on GitHub
+          </a>
+        )}
       </div>
     )
   }
